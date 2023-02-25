@@ -7,6 +7,11 @@ def load_data(sheets_url):
   return pd.read_csv(csv_url)
 
 df = load_data(st.secrets["public_gsheets_url"])
+st.header('Biodata')
 
 for row in df.itertuples():
-  st.write(f"{row.name} has a :{row.pet}:")
+  with st.container():
+    st.subheader(f'Nama: {row.nama}')
+    st.write(f'Umur: {row.umur}')
+    st.write(f'Gender: {row.gender}')
+    st.write(f'Pekerjaan: {row.pekerjaan}')
